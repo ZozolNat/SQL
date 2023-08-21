@@ -44,10 +44,3 @@ FROM cars
 WHERE `name` IN ("Skoda", "Audi");
 
 SELECT * FROM NameCar;
-
-
-    station,
-    station_time,
-	timediff(LEAD(station_time) OVER(PARTITION BY train_id ORDER BY train_id), station_time) AS 'time_to_next_station'
-FROM train
-WINDOW w AS (ORDER BY train_id);
